@@ -1,14 +1,10 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import MarkdownEditor from './MarkdownEditor';
 
-const string = '# Hello world!';
-
-function App() {
-  return (
-    <div className="App">
-      <ReactMarkdown>{string}</ReactMarkdown>
-    </div>
-  );
-}
+const App = (): JSX.Element => (
+  <div>
+    <MarkdownEditor />
+  </div>
+);
 
 export default App;
