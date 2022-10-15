@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import logo from './logo.svg';
 import './App.css';
+
+const string = '# Hello world!';
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
           {' '}
           and save to reload.
         </p>
+        <ReactMarkdown>{string}</ReactMarkdown>
         <a
           className="App-link"
           href="https://reactjs.org"
