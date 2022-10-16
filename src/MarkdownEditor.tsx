@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { files as markdownFiles } from './data/markdown';
 
 const container: React.CSSProperties = {
   display: 'flex',
@@ -22,8 +23,18 @@ const previewArea: React.CSSProperties = {
   width: '50%',
 };
 
-const MarkdownEditor = (): JSX.Element => {
-  const [text, setText] = useState<string>('');
+interface MarkdownEditorProps {
+  markdownId: string | null
+}
+
+const MarkdownEditor = (props: MarkdownEditorProps): JSX.Element => {
+  const { markdownId } = props;
+
+  const [text, setText] = useState<string>('Hey');
+
+  useEffect(() => {
+    setText(markdownId ? markdownFiles[markdownId] : 'No text');
+  }, [markdownId]);
 
   const onTextChange: React.ChangeEventHandler<HTMLTextAreaElement> = (event) => {
     setText(event.target.value);
